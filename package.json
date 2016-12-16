@@ -1,0 +1,24 @@
+{
+  "name": "react-motionportal",
+  "version": "0.1.0",
+  "description": "An animated react-portal powered by react-motion",
+  "main": "lib/MotionPortal.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/meriadec/react-motionportal.git"
+  },
+  "keywords": [
+    "react",
+    "react-motion",
+    "react-portal"
+  ],
+  "author": "Meriadec Pillet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meriadec/react-motionportal/issues"
+  },
+  "homepage": "https://github.com/meriadec/react-motionportal#readme"
+}
