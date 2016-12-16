@@ -24,6 +24,7 @@ class AnimatedModal extends Component {
     return (
       <Mortal
         isOpened={this.state.open}
+        onClose={this.handleClose}
         motionStyle={(spring, isVisible) => ({
           opacity: spring(isVisible ? 1 : 0),
         })}
