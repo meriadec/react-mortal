@@ -1,4 +1,4 @@
-# react-motionportal
+# react-mortal
 
 ## Install
 
