@@ -8,7 +8,7 @@ npm i react-motionportal
 
 ## Usage
 
-```
+```javascript
 import React, { Component } from 'react'
 import MotionPortal from 'react-motionportal'
 
