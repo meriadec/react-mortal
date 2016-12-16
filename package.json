@@ -1,6 +1,6 @@
 {
   "name": "react-motionportal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An animated react-portal powered by react-motion",
   "main": "lib/MotionPortal.js",
   "scripts": {
@@ -37,6 +37,10 @@
     ]
   },
   "dependencies": {
+    "react-motion": "^0.4.7",
+    "react-portal": "^3.0.0"
+  },
+  "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-eslint": "^7.1.1",
@@ -47,8 +51,6 @@
     "eslint": "^3.12.2",
     "eslint-config-zavatta": "^4.2.0",
     "eslint-config-zavatta-react": "^2.1.1",
-    "eslint-plugin-react": "^6.8.0",
-    "react-motion": "^0.4.7",
-    "react-portal": "^3.0.0"
+    "eslint-plugin-react": "^6.8.0"
   }
 }
