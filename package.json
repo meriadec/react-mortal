@@ -1,8 +1,8 @@
 {
-  "name": "react-motionportal",
+  "name": "react-mortal",
   "version": "1.0.1",
   "description": "An animated react-portal powered by react-motion",
-  "main": "lib/MotionPortal.js",
+  "main": "lib/Mortal.js",
   "scripts": {
     "build": "babel src -d lib",
     "lint": "eslint src",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/meriadec/react-motionportal.git"
+    "url": "git+ssh://git@github.com/meriadec/react-mortal.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,9 @@
   "author": "Meriadec Pillet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/meriadec/react-motionportal/issues"
+    "url": "https://github.com/meriadec/react-mortal/issues"
   },
-  "homepage": "https://github.com/meriadec/react-motionportal#readme",
+  "homepage": "https://github.com/meriadec/react-mortal#readme",
   "babel": {
     "presets": [
       "react",

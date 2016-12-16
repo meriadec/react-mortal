@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
 import Portal from 'react-portal'
 
-class MotionPortal extends Component {
+class Mortal extends Component {
 
   static propTypes = {
     onClose: PropTypes.func.isRequired,
@@ -95,6 +95,7 @@ class MotionPortal extends Component {
     const {
       motionStyle,
       children,
+      ...props
     } = this.props
 
     const {
@@ -104,6 +105,7 @@ class MotionPortal extends Component {
 
     return (
       <Portal
+        {...props}
         isOpened={portalOpened}
         onOpen={this.handlePortalOpen}
       >
@@ -119,4 +121,4 @@ class MotionPortal extends Component {
 
 }
 
-export default MotionPortal
+export default Mortal

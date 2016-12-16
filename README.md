@@ -3,14 +3,14 @@
 ## Install
 
 ```
-npm i react-motionportal
+npm i react-mortal
 ```
 
 ## Usage
 
 ```javascript
 import React, { Component } from 'react'
-import MotionPortal from 'react-motionportal'
+import Mortal from 'react-mortal'
 
 class AnimatedModal extends Component {
 
@@ -22,7 +22,7 @@ class AnimatedModal extends Component {
 
   render () {
     return (
-      <MotionPortal
+      <Mortal
         isOpened={this.state.open}
         motionStyle={(spring, isVisible) => ({
           opacity: spring(isVisible ? 1 : 0),
@@ -35,10 +35,10 @@ class AnimatedModal extends Component {
               pointerEvents: isVisible ? 'auto' : 'none',
             }}
           >
-            {'modal content'}
+            {'mortal body'}
           </div>
         )}
-      </MotionPortal>
+      </Mortal>
     )
   }
 
