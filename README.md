@@ -1,5 +1,11 @@
 # react-motionportal
 
+## Install
+
+```
+npm i react-motionportal
+```
+
 ## Usage
 
 ```
