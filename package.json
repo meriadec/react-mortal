@@ -1,6 +1,6 @@
 {
   "name": "react-motionportal",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "An animated react-portal powered by react-motion",
   "main": "lib/MotionPortal.js",
   "scripts": {
