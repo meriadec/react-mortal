@@ -4,9 +4,10 @@
   "description": "An animated react-portal powered by react-motion",
   "main": "lib/Mortal.js",
   "scripts": {
+    "start": "webpack-dev-server --content-base examples/ --inline",
     "build": "babel src -d lib",
-    "lint": "eslint src",
-    "test": "npm test"
+    "lint": "eslint src examples",
+    "test": "echo no tests yet"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,10 @@
     "eslint": "^3.12.2",
     "eslint-config-zavatta": "^4.2.0",
     "eslint-config-zavatta-react": "^2.1.1",
-    "eslint-plugin-react": "^6.8.0"
+    "eslint-plugin-react": "^6.8.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }

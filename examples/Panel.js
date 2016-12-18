@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Mortal from '../src/Mortal'
 
-class Modal extends Component {
+class Panel extends Component {
 
   render () {
 
@@ -18,19 +18,18 @@ class Modal extends Component {
         onClose={onClose}
         motionStyle={(spring, isVisible) => ({
           opacity: spring(isVisible ? 1 : 0),
-          modalScale: spring(isVisible ? 1 : 0.8),
-          modalOffset: spring(isVisible ? 0 : -40),
+          panelOffset: spring(isVisible ? 0 : 100),
         })}
       >
         {(motion, isVisible) => (
           <div
-            className='Modal'
+            className='Panel'
             style={{
               pointerEvents: isVisible ? 'auto' : 'none',
             }}
           >
             <div
-              className='Modal--overlay'
+              className='Panel--overlay'
               onClick={onClose}
               style={{
                 opacity: motion.opacity,
@@ -38,10 +37,9 @@ class Modal extends Component {
               }}
             />
             <div
-              className='Modal--body'
+              className='Panel--body'
               style={{
-                opacity: motion.opacity,
-                transform: `scale(${motion.modalScale}) translate3d(0, ${motion.modalOffset}px, 0)`,
+                transform: `translate3d(${motion.panelOffset}%, 0, 0)`,
               }}
             >
               {children}
@@ -54,4 +52,4 @@ class Modal extends Component {
 
 }
 
-export default Modal
+export default Panel
