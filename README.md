@@ -14,7 +14,7 @@ npm i react-mortal
 
 ## Usage
 
-```
+```javascript
 <Mortal
   isOpened={true|false}
   onClose={handler}
@@ -27,6 +27,7 @@ npm i react-mortal
       ...your component
     </div>
   )}
+</Mortal>
 ```
 
 ## API
