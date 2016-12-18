@@ -20,7 +20,7 @@
     "react-portal"
   ],
   "author": "Meriadec Pillet",
-  "license": "MIT",
+  "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/meriadec/react-mortal/issues"
   },
