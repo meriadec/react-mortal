@@ -1,9 +1,10 @@
 const path = require('path')
+const webpack = require('webpack')
 
 const examplesFolder = path.resolve(__dirname, 'examples')
 const distFolder = path.resolve(__dirname, 'dist')
 
-module.exports = {
+const config = {
   entry: './examples/index.js',
   output: {
     path: distFolder,
@@ -17,4 +18,15 @@ module.exports = {
       loaders: ['babel'],
     }],
   },
+  plugins: [],
 }
+
+if (process.env.BUILD_EXAMPLES) {
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false,
+    },
+  }))
+}
+
+module.exports = config

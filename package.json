@@ -5,6 +5,7 @@
   "main": "lib/Mortal.js",
   "scripts": {
     "start": "webpack-dev-server --content-base examples/ --inline",
+    "build:examples": "BUILD_EXAMPLES=1 webpack",
     "build": "babel src -d lib",
     "lint": "eslint src examples",
     "test": "echo no tests yet"
