@@ -2,7 +2,7 @@
 
 [react-portal](https://github.com/tajo/react-portal) is awesome, but it may
 be tricky to animate a Portal when entering/leaving the dom. This is what
-`react-mortal` is solving, by combining the power of react-motion and react-portal.
+`react-mortal` is solving, by combining it with the power of [react-motion](https://github.com/chenglou/react-motion).
 
 Check [usage example](https://github.com/meriadec/react-mortal/tree/master/examples) and [demo](https://meriadec.github.io/react-mortal/).
 
@@ -13,6 +13,31 @@ npm i react-mortal
 ```
 
 ## Usage
+
+```
+<Mortal
+  isOpened={true|false}
+  onClose={handler}
+  motionStyle={(spring, isVisible) => ({
+    ...motion object to pass
+  })}
+>
+  {(motion, isVisible) => (
+    <div>
+      ...your component
+    </div>
+  )}
+```
+
+## API
+
+#### Props
+
+`isOpened` {Boolean} : Show/hide Portal instance, applying animation
+`onClose` {Function} : Callback called when ESC key is pressed
+`motionStyle` {Function} : Function that returns an object consumed by react-motion. See react-motion docs.
+
+## Full example
 
 Example, to create a open/close animated modal:
 
