@@ -14,11 +14,6 @@ class Mortal extends Component {
   }
 
   componentWillMount () {
-
-    this.handleKey = ::this.handleKey
-    this.handleRest = ::this.handleRest
-    this.handlePortalOpen = ::this.handlePortalOpen
-
     // if portal is created opened,
     // no animation is needed
     if (this.props.isOpened) {
@@ -27,7 +22,6 @@ class Mortal extends Component {
         isVisible: true,
       })
     }
-
   }
 
   componentDidMount () {
@@ -69,19 +63,19 @@ class Mortal extends Component {
     window.removeEventListener('keydown', this.handleKey)
   }
 
-  handleKey (e) {
+  handleKey = (e) => {
     // handle ESC key
     if (e.which === 27 && this.state.portalOpened) {
       this.props.onClose()
     }
   }
 
-  handlePortalOpen () {
+  handlePortalOpen = () => {
     // portal just open, launch animation
     this.setState({ isVisible: true })
   }
 
-  handleRest () {
+  handleRest = () => {
     // if panel is not visible, close portal
     if (!this.state.isVisible) {
       this.setState({
