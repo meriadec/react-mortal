@@ -34,7 +34,9 @@ npm i react-mortal
 #### Props
 
 `isOpened` {Boolean} : Show/hide Portal instance, applying animation
+
 `onClose` {Function} : Callback called when ESC key is pressed
+
 `motionStyle` {Function} : Function that returns an object consumed by react-motion. See react-motion docs.
 
 ## Full example
