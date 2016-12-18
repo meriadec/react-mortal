@@ -18,8 +18,10 @@ class Modal extends Component {
         onClose={onClose}
         motionStyle={(spring, isVisible) => ({
           opacity: spring(isVisible ? 1 : 0),
-          modalScale: spring(isVisible ? 1 : 0.8),
-          modalOffset: spring(isVisible ? 0 : -40),
+          modalOffset: spring(isVisible ? 0 : -90, {
+            stiffness: isVisible ? 300 : 200,
+            damping: isVisible ? 15 : 30,
+          }),
         })}
       >
         {(motion, isVisible) => (
@@ -41,7 +43,7 @@ class Modal extends Component {
               className='Modal--body'
               style={{
                 opacity: motion.opacity,
-                transform: `scale(${motion.modalScale}) translate3d(0, ${motion.modalOffset}px, 0)`,
+                transform: `translate3d(0, ${motion.modalOffset}px, 0)`,
               }}
             >
               {children}
