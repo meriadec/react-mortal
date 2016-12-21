@@ -40,6 +40,8 @@ npm i react-mortal
 
 `motionStyle` {Function} : Function that returns an object consumed by react-motion. See react-motion docs.
 
+`portalProps` {Object} : Those props will be passed to the react-portal
+
 ## Full example
 
 Example, to create a open/close animated modal:

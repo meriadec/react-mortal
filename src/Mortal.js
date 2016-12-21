@@ -6,6 +6,7 @@ class Mortal extends Component {
 
   static propTypes = {
     onClose: PropTypes.func.isRequired,
+    portalProps: PropTypes.object,
   }
 
   state = {
@@ -89,7 +90,7 @@ class Mortal extends Component {
     const {
       motionStyle,
       children,
-      ...props
+      portalProps,
     } = this.props
 
     const {
@@ -99,7 +100,7 @@ class Mortal extends Component {
 
     return (
       <Portal
-        {...props}
+        {...portalProps}
         isOpened={portalOpened}
         onOpen={this.handlePortalOpen}
       >
