@@ -9,6 +9,10 @@ class Mortal extends Component {
     portalProps: PropTypes.object,
   }
 
+  static defaultProps = {
+    closeOnEsc: true,
+  }
+
   state = {
     portalOpened: false,
     isVisible: false,
@@ -66,7 +70,7 @@ class Mortal extends Component {
 
   handleKey = (e) => {
     // handle ESC key
-    if (e.which === 27 && this.state.portalOpened) {
+    if (e.which === 27 && this.state.portalOpened && this.props.closeOnEsc) {
       this.props.onClose()
     }
   }
