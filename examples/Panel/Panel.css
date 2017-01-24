@@ -1,0 +1,15 @@
+.Panel--overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.Panel--body {
+  position: fixed;
+  top: 0; bottom: 0; right: 0;
+  padding: 0 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 20px;
+  width: 300px;
+}

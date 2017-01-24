@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { render } from 'react-dom'
 
-import Modal from './Modal'
-import Panel from './Panel'
+import Modal from './Modal/Modal'
+import Panel from './Panel/Panel'
 
 class App extends Component {
 
@@ -84,4 +85,6 @@ class App extends Component {
 
 }
 
-export default App
+const root = document.getElementById('root')
+
+render(<App />, root)

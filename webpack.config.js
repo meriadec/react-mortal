@@ -1,11 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const examplesFolder = path.resolve(__dirname, 'examples')
 const distFolder = path.resolve(__dirname, 'dist')
 
 const config = {
-  entry: './examples/index.js',
+  entry: './examples/app.js',
   output: {
     path: distFolder,
     publicPath: '/',

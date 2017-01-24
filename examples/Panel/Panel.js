@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Mortal from '../src/Mortal'
+import Mortal from '../../src/Mortal'
 
 class Panel extends Component {
 
