@@ -34,32 +34,42 @@ class App extends Component {
       isPanelOpened,
     } = this.state
 
+    const modalToggle = (
+      <button onClick={isModalOpened ? this.closeModal : this.openModal} className='btn-modal'>
+        {`${isModalOpened ? 'Close' : 'Open'} modal`}
+      </button>
+    )
+
+    const portalToggle = (
+      <button onClick={isPanelOpened ? this.closePanel : this.openPanel} className='btn-panel'>
+        {`${isPanelOpened ? 'Close' : 'Open'} panel`}
+      </button>
+    )
+
     return (
-      <div>
+      <div className='container'>
 
         <h1>{'react-mortal'}</h1>
 
-        <button onClick={this.openModal}>
-          {'Open modal'}
-        </button>
+        {modalToggle}
+        {portalToggle}
 
-        <button onClick={this.openPanel}>
-          {'Open panel'}
-        </button>
+        <p>
+          {'Source on github: '}
+          <a href='https://github.com/meriadec/react-mortal'>
+            {'https://github.com/meriadec/react-mortal'}
+          </a>
+        </p>
 
         <Modal
           isOpened={isModalOpened}
           onClose={this.closeModal}
         >
-          <h3>{'Awesome modal'}</h3>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
+          <div className='placeholder'>
+            {'I\'m a modal'}
+          </div>
           <p>
-            <button onClick={this.closeModal}>
-              {'Close modal'}
-            </button>
+            {modalToggle}
           </p>
         </Modal>
 
@@ -67,15 +77,11 @@ class App extends Component {
           isOpened={isPanelOpened}
           onClose={this.closePanel}
         >
-          <h3>{'Awesome panel'}</h3>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
-          <p>{'Lorem ipsum onetuhsoetnuhsoetos ntahsh soaneh asoheoa'}</p>
+          <div className='placeholder'>
+            {'I\'m a panel'}
+          </div>
           <p>
-            <button onClick={this.closePanel}>
-              {'Close panel'}
-            </button>
+            {portalToggle}
           </p>
         </Panel>
 

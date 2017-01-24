@@ -1,5 +1,6 @@
 .Modal {
   position: fixed;
+  z-index: 1;
   top: 0; left: 0; right: 0; bottom: 0;
   overflow: hidden;
   display: flex;
@@ -18,7 +19,6 @@
   margin-top: 50px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 20px;
   min-width: 400px;
   max-width: 600px;
 }

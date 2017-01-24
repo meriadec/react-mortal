@@ -1,3 +1,53 @@
 * {
   box-sizing: border-box;
+  font: inherit;
+  border: none;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+button {
+  padding: 10px 15px;
+  background: #eee;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 135px;
+  text-align: center;
+}
+
+button:active {
+  background: #ddd;
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.btn-modal {
+  background: #e4ca87;
+}
+
+.btn-panel {
+  background: #8bcef1;
+}
+
+.placeholder {
+  text-align: center;
+  padding: 100px 0;
 }
