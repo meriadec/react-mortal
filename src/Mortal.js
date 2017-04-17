@@ -1,6 +1,8 @@
-import React, { Component, PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
+import React, { Component } from 'react'
+
 import Portal from 'react-portal'
+import PropTypes from 'prop-types'
 
 class Mortal extends Component {
 

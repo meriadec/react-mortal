@@ -39,6 +39,7 @@
     ]
   },
   "dependencies": {
+    "prop-types": "^15.5.8",
     "react-motion": "^0.4.7",
     "react-portal": "^3.0.0"
   },
