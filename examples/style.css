@@ -41,6 +41,7 @@ button + button {
 
 .btn-modal {
   background: #e4ca87;
+  white-space: nowrap;
 }
 
 .btn-panel {
