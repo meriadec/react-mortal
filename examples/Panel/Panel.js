@@ -3,14 +3,8 @@ import React, { Component } from 'react'
 import Mortal from '../../src/Mortal'
 
 class Panel extends Component {
-
-  render () {
-
-    const {
-      isOpened,
-      onClose,
-      children,
-    } = this.props
+  render() {
+    const { isOpened, onClose, children } = this.props
 
     return (
       <Mortal
@@ -23,13 +17,13 @@ class Panel extends Component {
       >
         {(motion, isVisible) => (
           <div
-            className='Panel'
+            className="Panel"
             style={{
               pointerEvents: isVisible ? 'auto' : 'none',
             }}
           >
             <div
-              className='Panel--overlay'
+              className="Panel--overlay"
               onClick={onClose}
               style={{
                 opacity: motion.opacity,
@@ -37,7 +31,7 @@ class Panel extends Component {
               }}
             />
             <div
-              className='Panel--body'
+              className="Panel--body"
               style={{
                 transform: `translate3d(${motion.panelOffset}%, 0, 0)`,
               }}
@@ -49,7 +43,6 @@ class Panel extends Component {
       </Mortal>
     )
   }
-
 }
 
 export default Panel
