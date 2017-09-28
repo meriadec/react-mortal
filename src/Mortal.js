@@ -4,7 +4,6 @@ import Portal from 'react-portal'
 import { Motion, spring } from 'react-motion'
 
 class Mortal extends Component {
-
   static propTypes = {
     onClose: PropTypes.func.isRequired,
     portalProps: PropTypes.object,
@@ -19,7 +18,7 @@ class Mortal extends Component {
     isVisible: false,
   }
 
-  componentWillMount () {
+  componentWillMount() {
     // if portal is created opened,
     // no animation is needed
     if (this.props.isOpened) {
@@ -30,12 +29,11 @@ class Mortal extends Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.handleKey)
   }
 
-  componentWillReceiveProps (nextProps) {
-
+  componentWillReceiveProps(nextProps) {
     // check if we just opened panel
 
     const hasOpened = !this.props.isOpened && nextProps.isOpened
@@ -62,14 +60,13 @@ class Mortal extends Component {
       // re-launch animation
       this.setState({ isVisible: true })
     }
-
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKey)
   }
 
-  handleKey = (e) => {
+  handleKey = e => {
     // handle ESC key
     if (e.which === 27 && this.state.portalOpened && this.props.closeOnEsc) {
       this.props.onClose()
@@ -90,35 +87,19 @@ class Mortal extends Component {
     }
   }
 
-  render () {
+  render() {
+    const { motionStyle, children, portalProps } = this.props
 
-    const {
-      motionStyle,
-      children,
-      portalProps,
-    } = this.props
-
-    const {
-      portalOpened,
-      isVisible,
-    } = this.state
+    const { portalOpened, isVisible } = this.state
 
     return (
-      <Portal
-        {...portalProps}
-        isOpened={portalOpened}
-        onOpen={this.handlePortalOpen}
-      >
-        <Motion
-          onRest={this.handleRest}
-          style={motionStyle(spring, isVisible)}
-        >
+      <Portal {...portalProps} isOpened={portalOpened} onOpen={this.handlePortalOpen}>
+        <Motion onRest={this.handleRest} style={motionStyle(spring, isVisible)}>
           {motion => children(motion, isVisible)}
         </Motion>
       </Portal>
     )
   }
-
 }
 
 export default Mortal

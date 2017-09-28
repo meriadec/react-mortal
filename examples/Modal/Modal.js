@@ -3,14 +3,8 @@ import React, { Component } from 'react'
 import Mortal from '../../src/Mortal'
 
 class Modal extends Component {
-
-  render () {
-
-    const {
-      isOpened,
-      onClose,
-      children,
-    } = this.props
+  render() {
+    const { isOpened, onClose, children } = this.props
 
     return (
       <Mortal
@@ -26,13 +20,13 @@ class Modal extends Component {
       >
         {(motion, isVisible) => (
           <div
-            className='Modal'
+            className="Modal"
             style={{
               pointerEvents: isVisible ? 'auto' : 'none',
             }}
           >
             <div
-              className='Modal--overlay'
+              className="Modal--overlay"
               onClick={onClose}
               style={{
                 opacity: motion.opacity,
@@ -40,7 +34,7 @@ class Modal extends Component {
               }}
             />
             <div
-              className='Modal--body'
+              className="Modal--body"
               style={{
                 opacity: motion.opacity,
                 transform: `translate3d(0, ${motion.modalOffset}px, 0)`,
@@ -53,7 +47,6 @@ class Modal extends Component {
       </Mortal>
     )
   }
-
 }
 
 export default Modal
