@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Portal from 'react-portal'
+import Portal from 'react-portal/lib/Portal'
 import { Motion, spring } from 'react-motion'
 
 class Mortal extends Component {
@@ -14,7 +14,7 @@ class Mortal extends Component {
   }
 
   state = {
-    portalOpened: false,
+    isPortalOpened: false,
     isVisible: false,
   }
 
@@ -23,7 +23,7 @@ class Mortal extends Component {
     // no animation is needed
     if (this.props.isOpened) {
       this.setState({
-        portalOpened: true,
+        isPortalOpened: true,
         isVisible: true,
       })
     }
@@ -36,39 +36,49 @@ class Mortal extends Component {
   componentWillReceiveProps(nextProps) {
     // check if we just opened panel
 
-    const hasOpened = !this.props.isOpened && nextProps.isOpened
-
-    if (hasOpened) {
+    const willOpen = !this.props.isOpened && nextProps.isOpened
+    if (willOpen) {
       // open portal
-      this.setState({ portalOpened: true })
+      this.setState({ isPortalOpened: true })
     }
 
     // check if we just closed panel
 
-    const hasClosed = this.props.isOpened && !nextProps.isOpened
-
-    if (hasClosed) {
+    const willClose = this.props.isOpened && !nextProps.isOpened
+    if (willClose) {
       // launch close animation
       this.setState({ isVisible: false })
     }
 
     // check if we re-opened panel while closing
 
-    const hasReopened = hasOpened && !this.state.isVisible && this.state.portalOpened
-
+    const hasReopened = willOpen && !this.state.isVisible && this.state.isPortalOpened
     if (hasReopened) {
       // re-launch animation
       this.setState({ isVisible: true })
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const didOpen = this.props.isOpened && !prevProps.isOpened
+    if (didOpen) {
+      window.requestAnimationFrame(() => {
+        if (this._unmounted) {
+          return
+        }
+        this.setState({ isVisible: true })
+      })
+    }
+  }
+
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKey)
+    this._unmounted = true
   }
 
   handleKey = e => {
     // handle ESC key
-    if (e.which === 27 && this.state.portalOpened && this.props.closeOnEsc) {
+    if (e.which === 27 && this.state.isPortalOpened && this.props.closeOnEsc) {
       this.props.onClose()
     }
   }
@@ -82,7 +92,7 @@ class Mortal extends Component {
     // if panel is not visible, close portal
     if (!this.state.isVisible) {
       this.setState({
-        portalOpened: false,
+        isPortalOpened: false,
       })
     }
   }
@@ -90,15 +100,15 @@ class Mortal extends Component {
   render() {
     const { motionStyle, children, portalProps } = this.props
 
-    const { portalOpened, isVisible } = this.state
+    const { isPortalOpened, isVisible } = this.state
 
-    return (
-      <Portal {...portalProps} isOpened={portalOpened} onOpen={this.handlePortalOpen}>
+    return isPortalOpened ? (
+      <Portal {...portalProps} onOpen={this.handlePortalOpen}>
         <Motion onRest={this.handleRest} style={motionStyle(spring, isVisible)}>
           {motion => children(motion, isVisible)}
         </Motion>
       </Portal>
-    )
+    ) : null
   }
 }
 

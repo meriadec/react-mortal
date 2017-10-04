@@ -20,8 +20,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  padding: 0 20px;
-  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 20px;
   background: white;
   width: 350px;
 }

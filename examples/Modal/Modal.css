@@ -21,9 +21,8 @@
 }
 
 .Modal--body {
-  padding: 0 20px;
-  margin-top: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-top: 100px;
   background: white;
   min-width: 400px;
   max-width: 600px;

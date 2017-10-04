@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+// replace this by
+// import Mortal from 'react-mortal'
 import Mortal from '../../src/Mortal'
 
 class Modal extends Component {
