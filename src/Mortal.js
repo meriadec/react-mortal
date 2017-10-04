@@ -7,6 +7,7 @@ class Mortal extends Component {
   static propTypes = {
     onClose: PropTypes.func.isRequired,
     portalProps: PropTypes.object,
+    closeOnEsc: PropTypes.bool,
   }
 
   static defaultProps = {

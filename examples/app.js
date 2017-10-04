@@ -94,7 +94,7 @@ class App extends Component {
             <a
               href="https://github.com/meriadec/react-mortal"
               target="_blank"
-              rel="noopener noreferer"
+              rel="noopener noreferrer"
             >
               {'https://github.com/meriadec/react-mortal'}
             </a>
@@ -110,7 +110,7 @@ class App extends Component {
               <a
                 href="https://github.com/meriadec/react-mortal/tree/master/examples/Modal"
                 target="_blank"
-                rel="noopener noreferer"
+                rel="noopener noreferrer"
               >
                 {'Example modal'}
               </a>
@@ -119,7 +119,7 @@ class App extends Component {
               <a
                 href="https://github.com/meriadec/react-mortal/tree/master/examples/Panel"
                 target="_blank"
-                rel="noopener noreferer"
+                rel="noopener noreferrer"
               >
                 {'Example panel'}
               </a>
