@@ -1,6 +1,6 @@
 {
   "name": "react-mortal",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "An animated react-portal powered by react-motion",
   "main": "lib/Mortal.js",
   "scripts": {
