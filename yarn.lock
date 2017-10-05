@@ -3423,8 +3423,8 @@ react-motion@^0.5.0:
     raf "^3.1.0"
 
 react-portal@^4.0.0-beta.1:
-  version "4.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-4.0.0-beta.1.tgz#77f7de3fd60c8def788893d22290ecbe6ea6d615"
+  version "4.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-4.0.0-beta.2.tgz#c25112a87fa209cc14776c739664101e3e9d3732"
   dependencies:
     prop-types "^15.5.8"
 
