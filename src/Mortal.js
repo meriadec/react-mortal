@@ -35,27 +35,21 @@ class Mortal extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // check if we just opened panel
+    const { isOpened } = this.props
+    const { isVisible, isPortalOpened } = this.state
 
-    const willOpen = !this.props.isOpened && nextProps.isOpened
+    const willOpen = !isOpened && nextProps.isOpened
     if (willOpen) {
-      // open portal
       this.setState({ isPortalOpened: true })
     }
 
-    // check if we just closed panel
-
-    const willClose = this.props.isOpened && !nextProps.isOpened
+    const willClose = isOpened && !nextProps.isOpened
     if (willClose) {
-      // launch close animation
       this.setState({ isVisible: false })
     }
 
-    // check if we re-opened panel while closing
-
-    const hasReopened = willOpen && !this.state.isVisible && this.state.isPortalOpened
+    const hasReopened = willOpen && !isVisible && isPortalOpened
     if (hasReopened) {
-      // re-launch animation
       this.setState({ isVisible: true })
     }
   }
@@ -78,38 +72,35 @@ class Mortal extends Component {
   }
 
   handleKey = e => {
+    const { closeOnEsc, onClose } = this.props
+    const { isPortalOpened } = this.state
     // handle ESC key
-    if (e.which === 27 && this.state.isPortalOpened && this.props.closeOnEsc) {
-      this.props.onClose()
+    if (e.which === 27 && isPortalOpened && closeOnEsc) {
+      onClose()
     }
   }
 
-  handlePortalOpen = () => {
-    // portal just open, launch animation
-    this.setState({ isVisible: true })
-  }
-
   handleRest = () => {
-    // if panel is not visible, close portal
     if (!this.state.isVisible) {
-      this.setState({
-        isPortalOpened: false,
-      })
+      this.setState({ isPortalOpened: false })
     }
   }
 
   render() {
     const { motionStyle, children, portalProps } = this.props
-
     const { isPortalOpened, isVisible } = this.state
 
-    return isPortalOpened ? (
-      <Portal {...portalProps} onOpen={this.handlePortalOpen}>
+    if (!isPortalOpened) {
+      return null
+    }
+
+    return (
+      <Portal {...portalProps}>
         <Motion onRest={this.handleRest} style={motionStyle(spring, isVisible)}>
           {motion => children(motion, isVisible)}
         </Motion>
       </Portal>
-    ) : null
+    )
   }
 }
 
