@@ -7,7 +7,7 @@
     "build:examples": "BUILD_EXAMPLES=1 webpack",
     "build": "babel src -d lib",
     "lint": "eslint src examples",
-    "prettier": "prettier --write \"{src,examples}/**/*.?(js|?(s)css|json)\"",
+    "prettier": "prettier --write \"{src,examples}/**/*.?(js|json)\"",
     "start": "webpack-dev-server --content-base examples/ --inline",
     "test": "echo no tests yet"
   },
@@ -73,6 +73,7 @@
     "eslint-plugin-react": "^7.1.0",
     "prettier": "^1.8.2",
     "react-dom": "^16.1.1",
+    "styled-components": "^2.2.4",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
-import Modal from './Modal/Modal'
-import Panel from './Panel/Panel'
+import Modal from './Modal'
+import Panel from './Panel'
 
 const USAGE = `<Mortal
   isOpened={true|false}
