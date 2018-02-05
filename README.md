@@ -51,18 +51,13 @@ import React, { Component, PropTypes } from 'react'
 import Mortal from 'react-mortal'
 
 class AnimatedModal extends Component {
-
   static propTypes = {
     isOpened: PropTypes.bool.isRequired,
     onClose: PropTypes.func.isRequired,
   }
 
-  render () {
-
-    const {
-      isOpened,
-      onClose,
-    } = this.props
+  render() {
+    const { isOpened, onClose } = this.props
 
     return (
       <Mortal
@@ -72,29 +67,25 @@ class AnimatedModal extends Component {
           opacity: spring(isVisible ? 1 : 0),
         })}
       >
-        {(motion) => (
+        {motion => (
           <div
             style={{
               opacity: motion.opacity,
             }}
           >
             <p>{'modal body'}</p>
-            <button onClick={this.handleClose}>
-              {'close modal'}
-            </button>
+            <button onClick={this.handleClose}>{'close modal'}</button>
           </div>
         )}
       </Mortal>
     )
   }
-
 }
 ```
 
 ## LICENSE
 
 ```
-
            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                    Version 2, December 2004
 
