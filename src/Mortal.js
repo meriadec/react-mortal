@@ -6,12 +6,14 @@ import { Motion, spring } from 'react-motion'
 class Mortal extends Component {
   static propTypes = {
     onClose: PropTypes.func.isRequired,
+    onHide: PropTypes.func,
     portalProps: PropTypes.object,
     closeOnEsc: PropTypes.bool,
   }
 
   static defaultProps = {
     closeOnEsc: true,
+    onHide: () => null,
   }
 
   state = {
@@ -83,6 +85,7 @@ class Mortal extends Component {
   handleRest = () => {
     if (!this.state.isVisible) {
       this.setState({ isPortalOpened: false })
+      this.props.onHide()
     }
   }
 

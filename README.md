@@ -42,6 +42,8 @@ npm i react-mortal
 
 `portalProps` {Object} : Those props will be passed to the react-portal
 
+`onHide` {Function} : Callback called when close animation has been finished
+
 ## Full example
 
 Example, to create a open/close animated modal:
