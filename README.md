@@ -69,14 +69,14 @@ class AnimatedModal extends Component {
           opacity: spring(isVisible ? 1 : 0),
         })}
       >
-        {motion => (
+        {(motion, isVisible, isAnimated) => (
           <div
             style={{
               opacity: motion.opacity,
             }}
           >
             <p>{'modal body'}</p>
-            <button onClick={this.handleClose}>{'close modal'}</button>
+            <button onClick={onClose}>{'close modal'}</button>
           </div>
         )}
       </Mortal>

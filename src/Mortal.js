@@ -19,6 +19,7 @@ class Mortal extends Component {
   state = {
     isPortalOpened: false,
     isVisible: false,
+    isAnimated: false,
   }
 
   componentWillMount() {
@@ -42,17 +43,17 @@ class Mortal extends Component {
 
     const willOpen = !isOpened && nextProps.isOpened
     if (willOpen) {
-      this.setState({ isPortalOpened: true })
+      this.setState({ isPortalOpened: true, isAnimated: true })
     }
 
     const willClose = isOpened && !nextProps.isOpened
     if (willClose) {
-      this.setState({ isVisible: false })
+      this.setState({ isVisible: false, isAnimated: true })
     }
 
     const hasReopened = willOpen && !isVisible && isPortalOpened
     if (hasReopened) {
-      this.setState({ isVisible: true })
+      this.setState({ isVisible: true, isAnimated: true })
     }
   }
 
@@ -84,14 +85,16 @@ class Mortal extends Component {
 
   handleRest = () => {
     if (!this.state.isVisible) {
-      this.setState({ isPortalOpened: false })
+      this.setState({ isPortalOpened: false, isAnimated: false })
       this.props.onHide()
+    } else {
+      this.setState({ isAnimated: false })
     }
   }
 
   render() {
     const { motionStyle, children, portalProps } = this.props
-    const { isPortalOpened, isVisible } = this.state
+    const { isPortalOpened, isVisible, isAnimated } = this.state
 
     if (!isPortalOpened) {
       return null
@@ -100,7 +103,7 @@ class Mortal extends Component {
     return (
       <Portal {...portalProps}>
         <Motion onRest={this.handleRest} style={motionStyle(spring, isVisible)}>
-          {motion => children(motion, isVisible)}
+          {motion => children(motion, isVisible, isAnimated)}
         </Motion>
       </Portal>
     )
