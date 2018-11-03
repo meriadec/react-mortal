@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
+    "react": ">=16.3.0",
     "react-motion": "^0.5.0",
     "react-portal": "^4.1.2"
   },
@@ -72,7 +72,7 @@
     "eslint-config-zavatta-react": "^2.2.2",
     "eslint-plugin-react": "^7.6.1",
     "prettier": "^1.10.2",
-    "react-dom": "^16.2.0",
+    "react-dom": ">=16.3.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
