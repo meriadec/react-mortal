@@ -10,25 +10,18 @@ const config = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  mode: process.env.BUILD_EXAMPLES ? 'production' : 'development',
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loaders: ['babel-loader'],
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ],
   },
-  plugins: [],
-}
-
-if (process.env.BUILD_EXAMPLES) {
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false,
-    },
-  }))
-  config.plugins.push(new webpack.DefinePlugin({
-    'process.env.NODE_ENV': '"production"',
-  }))
 }
 
 module.exports = config
