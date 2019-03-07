@@ -1,5 +1,11 @@
 # Change log
 
+## [3.3.0] - 2019-03-07
+### Changed
+
+- Migrate deprecated lifecycle props [#6](https://github.com/meriadec/react-mortal/pull/6)
+- Upgrade dependencies [#8](https://github.com/meriadec/react-mortal/pull/8)
+
 ## [3.0.0] - 2017-10-05
 ### Changed
 
