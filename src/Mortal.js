@@ -16,45 +16,40 @@ class Mortal extends Component {
     onHide: () => null,
   }
 
-  state = {
-    isPortalOpened: false,
-    isVisible: false,
-    isAnimated: false,
+  static getDerivedStateFromProps(props, state) {
+    const { isOpened } = props
+    const { isPortalOpened, isVisible } = state
+
+    const willOpen = !isPortalOpened && isOpened
+    if (willOpen) {
+      return { isPortalOpened: true, isAnimated: true }
+    }
+
+    const willClose = isPortalOpened && !isOpened
+    if (willClose) {
+      return { isVisible: false, isAnimated: true }
+    }
+
+    const hasReopened = willOpen && !isVisible && isPortalOpened
+    if (hasReopened) {
+      return { isVisible: true, isAnimated: true }
+    }
+
+    return null
   }
 
-  componentWillMount() {
-    // if portal is created opened,
-    // no animation is needed
-    if (this.props.isOpened) {
-      this.setState({
-        isPortalOpened: true,
-        isVisible: true,
-      })
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isPortalOpened: props.isOpened,
+      isVisible: props.isOpened,
+      isAnimated: false,
     }
   }
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKey)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { isOpened } = this.props
-    const { isVisible, isPortalOpened } = this.state
-
-    const willOpen = !isOpened && nextProps.isOpened
-    if (willOpen) {
-      this.setState({ isPortalOpened: true, isAnimated: true })
-    }
-
-    const willClose = isOpened && !nextProps.isOpened
-    if (willClose) {
-      this.setState({ isVisible: false, isAnimated: true })
-    }
-
-    const hasReopened = willOpen && !isVisible && isPortalOpened
-    if (hasReopened) {
-      this.setState({ isVisible: true, isAnimated: true })
-    }
   }
 
   componentDidUpdate(prevProps) {
